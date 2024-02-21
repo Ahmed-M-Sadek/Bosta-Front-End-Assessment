@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "languageDropdownEnglish": "اللغة الإنجليزية",
+    "languageDropdownArabic": "اللغة العربية",
+    "trackShipment": {
+      "navbarLabel": "تتبع شحنتك",
+      "searchHeader": "تتبع شحنتك",
+      "placeholderText": "رقم التتبع"
+    }
+  }
+}

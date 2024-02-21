@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "languageDropdownEnglish": "English",
+    "languageDropdownArabic": "Arabic",
+    "trackShipment": {
+      "navbarLabel": "Track Shipment",
+      "searchHeader": "Track your shipment",
+      "placeholderText": "Tracking No."
+    }
+  }
+}
