@@ -22,7 +22,7 @@ function LanguageChanger() {
   return (
     <>
       <Dropdown menu={{ items, onClick }}>
-        <a onClick={(e) => e.preventDefault()}>
+        <a onClick={(e) => e.preventDefault()} style={{ color: "black" }}>
           <Space>
             {t("navbar.currentLanguage")}
             <DownOutlined />

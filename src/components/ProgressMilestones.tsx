@@ -15,7 +15,7 @@ interface ProgressColor {
   //      RED    |   Yellow  |   Green
 }
 function ProgressMilestones() {
-  const [t, i18n] = useTranslation("global");
+  const { t } = useTranslation("global");
   const { shipmentData } = useShipmentContext();
   const [milestone, setMilestone] = useState<number>(0);
   const [color, setColor] = useState<ProgressColor["hex"]>("#fff400");
@@ -43,35 +43,72 @@ function ProgressMilestones() {
 
   return (
     <div>
-      <Row style={{ width: "100%", position: "relative" }}>
+      <Row
+        style={{
+          width: "100%",
+          position: "relative",
+          justifyContent: "space-between",
+        }}
+      >
         <Progress
           percent={milestone}
           showInfo={false}
           strokeColor={color}
-          style={{ width: "100%" }}
+          style={{
+            width: "100%",
+            position: "absolute",
+            top: "-10%",
+          }}
         />
-        <CheckCircleFilled className="progress-icon progress_0" />
+        <CheckCircleFilled className="progress-icon" style={{ color: color }} />
         {milestone > 33 ? (
-          <CheckCircleFilled className="progress-icon progress_33" />
+          <CheckCircleFilled
+            className="progress-icon"
+            style={{ color: color }}
+          />
         ) : (
-          <ShopFilled className="progress-icon progress_33" />
+          <ShopFilled
+            className="progress-icon"
+            style={milestone == 33 ? { color: color } : { color: "gray" }}
+          />
         )}
         {milestone > 66 ? (
-          <CheckCircleFilled className="progress-icon progress_66" />
+          <CheckCircleFilled
+            className="progress-icon"
+            style={{ color: color }}
+          />
         ) : (
-          <TruckFilled className="progress-icon progress_66" />
+          <TruckFilled
+            className="progress-icon"
+            style={milestone == 66 ? { color: color } : { color: "gray" }}
+          />
         )}
         {milestone >= 100 ? (
-          <CheckCircleFilled className="progress-icon progress_100" />
+          <CheckCircleFilled
+            className="progress-icon"
+            style={{ color: color }}
+          />
         ) : (
-          <BookFilled className="progress-icon progress_100" />
+          <BookFilled className="progress-icon" style={{ color: "gray" }} />
         )}
       </Row>
-      <Row>
-        <Col>1</Col>
-        <Col>2</Col>
-        <Col>3</Col>
-        <Col>4</Col>
+      <Row
+        style={{
+          width: "100%",
+          position: "relative",
+          justifyContent: "space-between",
+        }}
+      >
+        <Col>{t("shipment.state.TICKET_CREATED")}</Col>
+        <Col>{t("shipment.state.PACKAGE_RECEIVED")}</Col>
+        <Col>
+          {t("shipment.state.OUT_FOR_DELIVERY") +
+            "\n" +
+            (shipmentData!["CurrentStatus"]["reason"] == undefined
+              ? ""
+              : shipmentData!["CurrentStatus"]["reason"])}
+        </Col>
+        <Col>{t("shipment.state.DELIVERED")}</Col>
       </Row>
     </div>
   );

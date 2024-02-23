@@ -23,6 +23,18 @@
       "DELIVERED": "Delivered",
       "WAITING_FOR_CUSTOMER_ACTION": "Waiting For Customer Action",
       "CANCELLED": "Cancelled"
-    }
+    },
+    "details": "Shipment Details",
+    "address": "Shipping Address"
+  },
+  "details": {
+    "branch": "Branch",
+    "date": "Date",
+    "time": "Time",
+    "details": "Details"
+  },
+  "support": {
+    "label": "Facing an issue with your shipment?!",
+    "button": "Report a problem"
   }
 }

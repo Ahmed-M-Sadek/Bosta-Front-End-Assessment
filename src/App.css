@@ -5,13 +5,16 @@
 
 body {
   margin: 0;
+  background-color: white;
+  font-family: "Cairo", sans-serif !important;
 }
 
 .progress-icon {
-  position: absolute;
   /* transform: -50%, 0; */
   z-index: 2;
-  top: 21%;
+  top: 0;
+  font-size: 23px;
+  background-color: white;
 }
 
 .progress_0 {
@@ -25,4 +28,8 @@ body {
 }
 .progress_100 {
   left: 0em;
+}
+
+.ant-btn {
+  background-color: #e30613;
 }

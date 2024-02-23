@@ -23,6 +23,18 @@
       "DELIVERED": "تم تسليم الشحنة",
       "WAITING_FOR_CUSTOMER_ACTION": "لم يتم تسليم الشحنة",
       "CANCELLED": "تم إلغاء الشحنة"
-    }
+    },
+    "details": "تفاصيل الشحنة",
+    "address": "عنوان التسليم"
+  },
+  "details": {
+    "branch": "الفرع",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "details": "تفاصيل"
+  },
+  "support": {
+    "label": "هل يوجد مشكلة فى شحنتك ؟!",
+    "button": "إبلاغ عن مشكلة"
   }
 }

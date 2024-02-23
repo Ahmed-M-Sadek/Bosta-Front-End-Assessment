@@ -1,3 +1,6 @@
+import { format } from "date-fns";
+import { arEG, enGB } from "date-fns/locale";
+
 export const formatString = (str2Format: string, ...args: string[]) => {
   str2Format?.replace(
     /({\d+})/g,
@@ -27,4 +30,15 @@ export const getShippingMilestone = (state: string) => {
       return 0;
       break;
   }
+};
+
+export const getFormatedDate = (
+  dateTime: string,
+  formatString: string,
+  localeID: string
+) => {
+  const localeLang = localeID === "ar" ? arEG : enGB;
+  return format(dateTime, formatString, {
+    locale: localeLang,
+  });
 };

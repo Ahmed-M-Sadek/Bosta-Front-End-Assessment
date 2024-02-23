@@ -5,6 +5,8 @@ export interface ShipmentDataType {
   CurrentStatus: {
     state: string;
     timestamp: string;
+    hub: string | null;
+    reason: string | null;
   };
   PromisedDate: string | null;
   TrackingNumber: string;
@@ -14,27 +16,8 @@ export interface ShipmentDataType {
     {
       state: string;
       timestamp: string;
-    },
-    {
-      state: string;
-      timestamp: string;
-      hub: string;
-    },
-    {
-      state: string;
-      timestamp: string;
-    },
-    {
-      state: string;
-      timestamp: string;
-    },
-    {
-      state: string;
-      timestamp: string;
-    },
-    {
-      state: string;
-      timestamp: string;
+      hub: string | null | undefined;
+      reason: string | null | undefined;
     }
   ];
   CreateDate: string;
