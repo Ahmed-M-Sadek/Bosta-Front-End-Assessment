@@ -6,8 +6,9 @@ import i18next from "i18next";
 import language_en from "./localization/en/global.json";
 import language_ar from "./localization/ar/global.json";
 import { I18nextProvider } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-i18next.init({
+i18next.use(LanguageDetector).init({
   interpolation: { escapeValue: true },
 
   lng: "en",

@@ -1,27 +1,36 @@
 import { Input } from "antd";
 import { SearchProps } from "antd/es/input/Search";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
-const { Search } = Input;
+import { ShipmentDataType } from "../types";
+import axios from "axios";
+import { useShipmentContext } from "../App";
+async function getShipmentData(shipmentNo: string): Promise<ShipmentDataType> {
+  const url = import.meta.env.VITE_BASE_URI + shipmentNo;
+  const response = await axios.get<ShipmentDataType>(url);
+  return response.data;
+}
 
 function TrackingSearchBar() {
-  const [t, i18n] = useTranslation("global");
-  const GET_ADDRESS = "https://tracking.bosta.co/shipments/track/";
+  const { setShipmentData } = useShipmentContext();
+  const { Search } = Input;
+  const handleSearch = async (value: string) => {
+    const shipmentData = await getShipmentData(value);
+    setShipmentData(shipmentData);
+  };
+
+  const { t } = useTranslation("global");
   const onSearch: SearchProps["onSearch"] = (value, _e, info) => {
-    fetch(GET_ADDRESS + value)
-      .then((response) => response.json)
-      .then((data) => console.log(data)); //TODO do stuff with data
+    handleSearch(value);
   };
 
   return (
-    <>
+    <div>
       <Search
-        placeholder={t("navbar.trackShipment.placeholderText")}
+        placeholder={t("shipment.placeholderText")}
         enterButton
         onSearch={onSearch}
       />
-    </>
+    </div>
   );
 }
 

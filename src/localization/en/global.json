@@ -1,11 +1,28 @@
 {
   "navbar": {
+    "currentLanguage": "En",
     "languageDropdownEnglish": "English",
     "languageDropdownArabic": "Arabic",
-    "trackShipment": {
-      "navbarLabel": "Track Shipment",
-      "searchHeader": "Track your shipment",
-      "placeholderText": "Tracking No."
+    "icon": "/icon_bosta_en.svg"
+  },
+  "shipment": {
+    "pageheader": "Track Your Shipment",
+    "pageSubheader": "All order updates will be available through this link",
+    "placeholderText": "Tracking No.",
+    "expectedArrival": "Expected Arrival",
+    "vendor": "Vendor Name",
+    "update": "Last update",
+    "shippingNo": "Shipping No.",
+    "state": {
+      "TICKET_CREATED": "Ticket Created",
+      "PACKAGE_RECEIVED": "Package Recieved from Vendor",
+      "IN_TRANSIT": "In Transit",
+      "NOT_YET_SHIPPED": "Not Yet Shipped",
+      "OUT_FOR_DELIVERY": "Out for Delivery",
+      "RECEIVED_DELIVERY_LOCATION": "Recieved Delivery Location",
+      "DELIVERED": "Delivered",
+      "WAITING_FOR_CUSTOMER_ACTION": "Waiting For Customer Action",
+      "CANCELLED": "Cancelled"
     }
   }
 }

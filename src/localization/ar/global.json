@@ -1,11 +1,28 @@
 {
   "navbar": {
+    "currentLanguage": "عربى",
     "languageDropdownEnglish": "اللغة الإنجليزية",
     "languageDropdownArabic": "اللغة العربية",
-    "trackShipment": {
-      "navbarLabel": "تتبع شحنتك",
-      "searchHeader": "تتبع شحنتك",
-      "placeholderText": "رقم التتبع"
+    "icon": "/icon_bosta_ar.svg"
+  },
+  "shipment": {
+    "pageheader": "تتبع شحنتك",
+    "pageSubheader": "جميع تحديثات الشحنة ستكون متاحة من خلال هذا الرابط",
+    "placeholderText": "رقم التتبع",
+    "expectedArrival": "موعد التسليم خلال",
+    "vendor": "اسم التاجر",
+    "update": "اخر تحديث",
+    "shippingNo": "رقم الشحنة",
+    "state": {
+      "TICKET_CREATED": "تم إنشاء الشحنة",
+      "PACKAGE_RECEIVED": "تم إستلام الشحنة من التاجر",
+      "IN_TRANSIT": "يتم نجهيز الشحنة",
+      "NOT_YET_SHIPPED": "لم يتم الشحن بعد",
+      "OUT_FOR_DELIVERY": "الشحنة خرجت للتسليم",
+      "RECEIVED_DELIVERY_LOCATION": "تم إستلام عنوان الشحن",
+      "DELIVERED": "تم تسليم الشحنة",
+      "WAITING_FOR_CUSTOMER_ACTION": "لم يتم تسليم الشحنة",
+      "CANCELLED": "تم إلغاء الشحنة"
     }
   }
 }
