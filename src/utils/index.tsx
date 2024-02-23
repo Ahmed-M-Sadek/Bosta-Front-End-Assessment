@@ -1,13 +1,11 @@
 import { format } from "date-fns";
 import { arEG, enGB } from "date-fns/locale";
 
-export const formatString = (str2Format: string, ...args: string[]) => {
+export const formatString = (str2Format: string, ...args: string[]) =>
   str2Format?.replace(
     /({\d+})/g,
     (a) => args[+a.substring(1, a.length - 1) || 0]
   );
-};
-
 export const getShippingMilestone = (state: string) => {
   switch (state) {
     case "PACKAGE_RECEIVED":

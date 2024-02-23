@@ -4,8 +4,9 @@ import { useTranslation } from "react-i18next";
 import { ShipmentDataType } from "../types";
 import axios from "axios";
 import { useShipmentContext } from "../App";
+import { formatString } from "../utils";
 async function getShipmentData(shipmentNo: string): Promise<ShipmentDataType> {
-  const url = import.meta.env.VITE_BASE_URI + shipmentNo;
+  const url = formatString(import.meta.env.VITE_BASE_URI, shipmentNo);
   const response = await axios.get<ShipmentDataType>(url);
   return response.data;
 }
@@ -19,7 +20,7 @@ function TrackingSearchBar() {
   };
 
   const { t } = useTranslation("global");
-  const onSearch: SearchProps["onSearch"] = (value, _e, info) => {
+  const onSearch: SearchProps["onSearch"] = (value, _e) => {
     handleSearch(value);
   };
 
