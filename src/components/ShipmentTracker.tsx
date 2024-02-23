@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { useShipmentContext } from "../App";
 import ProgressMilestones from "./ProgressMilestones";
 import { getFormatedDate } from "../utils";
-// import { getFormatedDate } from "../utils";
 
 function ShipmentTracker() {
   const [t, i18n] = useTranslation("global");
