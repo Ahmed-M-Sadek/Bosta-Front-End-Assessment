@@ -17,6 +17,7 @@ export const getShippingMilestone = (state: string) => {
     case "OUT_FOR_DELIVERY":
     case "WAITING_FOR_CUSTOMER_ACTION":
     case "CANCELLED":
+    case "DELIVERED_TO_SENDER":
       return 66;
       break;
 

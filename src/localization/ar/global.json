@@ -21,6 +21,7 @@
       "OUT_FOR_DELIVERY": "الشحنة خرجت للتسليم",
       "RECEIVED_DELIVERY_LOCATION": "تم إستلام عنوان الشحن",
       "DELIVERED": "تم تسليم الشحنة",
+      "DELIVERED_TO_SENDER": "تم إرجاع الشحنة",
       "WAITING_FOR_CUSTOMER_ACTION": "لم يتم تسليم الشحنة",
       "CANCELLED": "تم إلغاء الشحنة"
     },
