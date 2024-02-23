@@ -21,6 +21,7 @@
       "OUT_FOR_DELIVERY": "Out for Delivery",
       "RECEIVED_DELIVERY_LOCATION": "Recieved Delivery Location",
       "DELIVERED": "Delivered",
+      "DELIVERED_TO_SENDER": "Delivered to Sender",
       "WAITING_FOR_CUSTOMER_ACTION": "Waiting For Customer Action",
       "CANCELLED": "Cancelled"
     },

@@ -103,7 +103,12 @@ function ShipmentTracker() {
           </Card>
           <Card>
             <Card.Grid
-              style={{ width: "25%", fontSize: "70px", color: "#e30613" }}
+              style={{
+                width: "25%",
+                fontSize: "70px",
+                color: "#e30613",
+                justifyContent: "center",
+              }}
             >
               <QuestionCircleFilled />
             </Card.Grid>
