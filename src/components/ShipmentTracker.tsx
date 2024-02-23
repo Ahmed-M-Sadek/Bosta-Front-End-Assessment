@@ -4,9 +4,11 @@ import { useTranslation } from "react-i18next";
 import { useShipmentContext } from "../App";
 import ProgressMilestones from "./ProgressMilestones";
 import { getFormatedDate } from "../utils";
+import { useEffect, useState } from "react";
 
 function ShipmentTracker() {
   const [t, i18n] = useTranslation("global");
+  const [color, setColor] = useState("");
   const { shipmentData } = useShipmentContext();
   const TABLE_COLUMNS = [
     { title: t("details.branch"), dataIndex: "branch", key: "branch" },
@@ -14,6 +16,24 @@ function ShipmentTracker() {
     { title: t("details.time"), dataIndex: "time", key: "time" },
     { title: t("details.details"), dataIndex: "state", key: "state" },
   ];
+
+  useEffect(() => {
+    if (shipmentData) {
+      switch (shipmentData!["CurrentStatus"]["state"]) {
+        case "CANCELLED":
+          setColor("#ff0000");
+          break;
+
+        case "DELIVERED":
+          setColor("#2cba00");
+          break;
+
+        default:
+          setColor("#fff400");
+          break;
+      }
+    }
+  }, [shipmentData]);
 
   return (
     <div style={{ width: "100%", paddingLeft: "50px", paddingRight: "50px" }}>
@@ -27,27 +47,29 @@ function ShipmentTracker() {
             borderRadius: "8px 8px 0 0",
           }}
         >
-          <Row>
-            <Col span={6}>
+          <Row style={{ alignContent: "space-between" }}>
+            <Col span={7}>
               {t("shipment.shippingNo")} {shipmentData!["TrackingNumber"]}
             </Col>
-            <Col span={6}>{t("shipment.update")}</Col>
-            <Col span={6}>{t("shipment.vendor")}</Col>
-            <Col span={6}>{t("shipment.expectedArrival")}</Col>
+            <Col span={8}>{t("shipment.update")}</Col>
+            <Col span={5}>{t("shipment.vendor")}</Col>
+            <Col span={4}>{t("shipment.expectedArrival")}</Col>
           </Row>
-          <Row>
-            <Col span={6}>
+          <Row style={{ fontWeight: 800 }}>
+            <Col span={7} style={{ fontSize: "14px", color: color }}>
               {t("shipment.state." + shipmentData!["CurrentStatus"]["state"])}
             </Col>
-            <Col span={6}>
+            <Col span={8} style={{ fontSize: "14px" }}>
               {getFormatedDate(
                 shipmentData!["CurrentStatus"]["timestamp"],
                 "eeee MM/dd/yyyy hh:mm aaa",
                 i18n.language
               )}
             </Col>
-            <Col span={6}>{shipmentData!["provider"]}</Col>
-            <Col span={6}>
+            <Col span={5} style={{ fontSize: "14px" }}>
+              {shipmentData!["provider"]}
+            </Col>
+            <Col span={4} style={{ fontSize: "14px" }}>
               {shipmentData!["PromisedDate"]
                 ? getFormatedDate(
                     shipmentData!["PromisedDate"],
@@ -102,17 +124,18 @@ function ShipmentTracker() {
             <p>Address Line 2</p>
           </Card>
           <Card>
-            <Card.Grid
-              style={{
-                width: "25%",
-                fontSize: "70px",
-                color: "#e30613",
-                justifyContent: "center",
-              }}
-            >
-              <QuestionCircleFilled />
+            <Card.Grid hoverable={false} style={{ width: "25%" }}>
+              <QuestionCircleFilled
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                  fontSize: "70px",
+                  color: "#e30613",
+                }}
+              />
             </Card.Grid>
-            <Card.Grid style={{ width: "75%" }}>
+            <Card.Grid hoverable={false} style={{ width: "75%" }}>
               <p>{t("support.label")}</p>
               <Button>{t("support.button")}</Button>
             </Card.Grid>
