@@ -97,6 +97,7 @@ function ProgressMilestones() {
           width: "100%",
           position: "relative",
           justifyContent: "space-between",
+          fontWeight: 700,
         }}
       >
         <Col>{t("shipment.state.TICKET_CREATED")}</Col>
@@ -104,9 +105,14 @@ function ProgressMilestones() {
         <Col>
           {t("shipment.state.OUT_FOR_DELIVERY") +
             "\n" +
-            (shipmentData!["CurrentStatus"]["reason"] == undefined
-              ? ""
-              : shipmentData!["CurrentStatus"]["reason"])}
+            (shipmentData!["CurrentStatus"]["reason"] == undefined ? (
+              ""
+            ) : (
+              <p style={{ color: color }}>
+                {" "}
+                shipmentData!["CurrentStatus"]["reason"]
+              </p>
+            ))}
         </Col>
         <Col>{t("shipment.state.DELIVERED")}</Col>
       </Row>
